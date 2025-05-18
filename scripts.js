@@ -32,7 +32,7 @@ function explode(event){
     paisaValue *= 0;
     //alert("Haar Gye!!");
     message.style.color = "red";
-    message.textContent = "Current Money: " + paisaValue;
+    message.textContent = "Current Bet: " + paisaValue+ " (Restart the game)";
     document.querySelectorAll(".playButton").forEach(btn => {
         btn.disabled = true;
     });
@@ -70,7 +70,7 @@ function multiply(event){
     paisaValue *= multiplier;
     console.log(paisaValue);
     message.style.color = "green";
-    message.textContent = "Current Money: " + paisaValue;
+    message.textContent = "Current Bet: " + paisaValue;
 }
 
 
@@ -170,6 +170,7 @@ function withdrawMoney(){
     document.querySelectorAll(".playButton").forEach(btn => {
         btn.disabled = true;
     });
+    message.textContent = "Withdrawn Money: " + paisaValue+ " (Restart the game)";
     small.disabled = true;
     medium.disabled = true;
     large.disabled = true;
