@@ -2,6 +2,7 @@
 let startButton = document.querySelector("#startButton");
 startButton.addEventListener("click",playGame,{once:true});
 
+let message = document.querySelector("#message");
 let avlMoney = 100;
 let paisaValue = 0;
 let multiplier = 1;
@@ -29,8 +30,9 @@ function explode(event){
     let clickedButton = event.currentTarget;
     clickedButton.style.backgroundColor = "red";
     paisaValue *= 0;
-    alert("Haar Gye!!");
-    console.log(paisaValue);
+    //alert("Haar Gye!!");
+    message.style.color = "red";
+    message.textContent = "Current Money: " + paisaValue;
     document.querySelectorAll(".playButton").forEach(btn => {
         btn.disabled = true;
     });
@@ -67,6 +69,8 @@ function multiply(event){
     clickedButton.style.backgroundColor = "lime";
     paisaValue *= multiplier;
     console.log(paisaValue);
+    message.style.color = "green";
+    message.textContent = "Current Money: " + paisaValue;
 }
 
 
@@ -90,7 +94,7 @@ function playGame(){
         avlMoney -= paisaValue;
         saveBalance(avlMoney);
     } else {
-        alert("Aukat se jyada badh gye!!");
+        alert("Aukat se jyada badh gye!!(Available Balance is Low)");
         reloadPage();
         return;
     }
@@ -157,13 +161,23 @@ function withdrawMoney(){
     startButton.disabled = true;
 }
 
+function bheekh(){
+    if (avlMoney<=5) {
+        avlMoney += 5;
+        initWallet();
+    } else {
+        alert("Bheekh lene ke liye apna net worth 5 rupees ke niche laaye")
+    }
+    saveBalance(avlMoney);
+}
 
+let topUp = document.querySelector("#topUp");
 let withdraw = document.querySelector("#withdraw");
 let restart = document.querySelector("#restart");
 
 withdraw.addEventListener("click",withdrawMoney,{once:true});
 restart.addEventListener("click",reloadPage);
-
+topUp.addEventListener("click",bheekh,{once:true});
 
 
 
