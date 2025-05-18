@@ -4,6 +4,7 @@ startButton.addEventListener("click",playGame,{once:true});
 
 let avlMoney = 100;
 let paisaValue = 0;
+let multiplier = 1;
 
 function reloadPage(){
     location.reload();
@@ -14,14 +15,35 @@ function explode(event){
     clickedButton.style.backgroundColor = "red";
     paisaValue *= 0;
     alert("Haar Gye!!");
-    reloadPage();
+    console.log(paisaValue);
+    document.querySelectorAll(".playButton").forEach(btn => {
+        btn.disabled = true;
+    });
+
 }
-let multiplier = 1;
-function setMultiplier(){
+
+
+let multiplierValue = document.querySelector(".multiplierValue");
+
+
     let small = document.querySelector("#small");
     let medium = document.querySelector("#medium");
     let large = document.querySelector("#large");
-}
+
+    small.addEventListener("click", () => {
+        multiplier = 1.25;
+        multiplierValue.textContent = "Multiplier: " + multiplier;
+    });
+
+    medium.addEventListener("click", () => {
+        multiplier = 1.5;
+        multiplierValue.textContent = "Multiplier: " + multiplier;
+    });
+
+    large.addEventListener("click", () => {
+        multiplier = 1.75;
+        multiplierValue.textContent = "Multiplier: " + multiplier;
+    });
 
 
 
@@ -42,7 +64,12 @@ initWallet();
 
 function playGame(){
     console.log("chal rha hai");
-    
+    small.disabled = true;
+    medium.disabled = true;
+    large.disabled = true;
+    startButton.disabled = true;
+
+
     paisaValue = document.querySelector("#paisa").value;
     if (paisaValue<=avlMoney) {
         avlMoney -= paisaValue;
@@ -52,7 +79,6 @@ function playGame(){
         return;
     }
     initWallet();
-
     
     let sizeValue = document.querySelector("#size").value;
     let grid = document.querySelector(".grid");
