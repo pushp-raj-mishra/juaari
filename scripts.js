@@ -10,6 +10,21 @@ function reloadPage(){
     location.reload();
 }
 
+function saveBalance(amount) {
+  localStorage.setItem("balance", amount.toString());
+}
+function loadBalance() {
+  const stored = localStorage.getItem("balance");
+  return stored === null ? 100 : parseFloat(stored);
+}
+
+
+avlMoney = loadBalance();
+initWallet();
+
+
+
+
 function explode(event){
     let clickedButton = event.currentTarget;
     clickedButton.style.backgroundColor = "red";
@@ -73,6 +88,7 @@ function playGame(){
     paisaValue = document.querySelector("#paisa").value;
     if (paisaValue<=avlMoney) {
         avlMoney -= paisaValue;
+        saveBalance(avlMoney);
     } else {
         alert("Aukat se jyada badh gye!!");
         reloadPage();
@@ -131,6 +147,7 @@ function playGame(){
 function withdrawMoney(){
     avlMoney += paisaValue;
     initWallet();
+    saveBalance(avlMoney);
     document.querySelectorAll(".playButton").forEach(btn => {
         btn.disabled = true;
     });
