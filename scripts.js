@@ -128,13 +128,20 @@ function playGame(){
     }
 }
 
+function withdrawMoney(){
+    avlMoney += paisaValue;
+    initWallet();
+    document.querySelectorAll(".playButton").forEach(btn => {
+        btn.disabled = true;
+    });
+}
 
 
+let withdraw = document.querySelector("#withdraw");
+let restart = document.querySelector("#restart");
 
-
-
-
-
+withdraw.addEventListener("click",withdrawMoney,{once:true});
+restart.addEventListener("click",reloadPage);
 
 
 
