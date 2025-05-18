@@ -5,16 +5,31 @@ startButton.addEventListener("click",playGame,{once:true});
 let avlMoney = 100;
 let paisaValue = 0;
 
+function reloadPage(){
+    location.reload();
+}
 
 function explode(event){
     let clickedButton = event.currentTarget;
     clickedButton.style.backgroundColor = "red";
-    
+    paisaValue *= 0;
+    alert("Haar Gye!!");
+    reloadPage();
 }
+let multiplier = 1;
+function setMultiplier(){
+    let small = document.querySelector("#small");
+    let medium = document.querySelector("#medium");
+    let large = document.querySelector("#large");
+}
+
+
+
 function multiply(event){
     let clickedButton = event.currentTarget;
     clickedButton.style.backgroundColor = "lime";
-    
+    paisaValue *= multiplier;
+    console.log(paisaValue);
 }
 
 
@@ -33,12 +48,21 @@ function playGame(){
         avlMoney -= paisaValue;
     } else {
         alert("Aukat se jyada badh gye!!");
+        reloadPage();
         return;
     }
     initWallet();
+
+    
     let sizeValue = document.querySelector("#size").value;
     let grid = document.querySelector(".grid");
     let size = parseInt(sizeValue);
+    if (size>20) {
+        alert("Larger size sets website unresponsive");
+        reloadPage();
+        return;
+    }
+    
     let money = parseInt(paisaValue);
     console.log(size);
     let bomb = [];
