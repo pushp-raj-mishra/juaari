@@ -101,6 +101,21 @@ function playGame(){
     initWallet();
     
     let sizeValue = document.querySelector("#size").value;
+    
+    
+    
+    if (paisaValue.trim() === "" || sizeValue.trim() === "") {
+        alert("Both fields are required.");
+        reloadPage();
+        return;
+    }
+    
+    
+    if (isNaN(paisaValue)||isNaN(sizeValue)) {
+        alert("Enter Valid Numbers");
+        reloadPage();
+        return;
+    }
     let grid = document.querySelector(".grid");
     let size = parseInt(sizeValue);
     if (size>20) {
