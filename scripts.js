@@ -151,6 +151,10 @@ function withdrawMoney(){
     document.querySelectorAll(".playButton").forEach(btn => {
         btn.disabled = true;
     });
+    small.disabled = true;
+    medium.disabled = true;
+    large.disabled = true;
+    startButton.disabled = true;
 }
 
 
