@@ -8,6 +8,28 @@
     <script src="./styles.css" defer></script>
 </head>
 <body>
-    <h1>Welcome to Juaari. A Stakes Mine game.</h1>
+    <div class="header">
+        <h1 id="logo">Juaari</h1>
+        <h1 id="balance">Balance: 0</h1>
+    </div>
+    <div class="internal">
+        <div class="control">
+            <div id="shakuni">
+                <h2>Based on the philosophy of Shakuni</h2>
+                <img src="./resources/shakuni.png" alt="picture of shakuni">
+            </div>
+            <div id="amount"></div>
+            <div class="multiplier">
+                <button id="small">1.25x</button>
+                <button id="medium">1.50x</button>
+                <button id="large">1.75x</button>
+            </div>
+            <div class="start">
+                <button id="startButton">Start</button>
+            </div>
+        </div>
+        <div class="playArea"></div>
+    </div>
+    
 </body>
 </html>
