@@ -130,7 +130,7 @@ function playGame(){
     for(let i = 0; i < size*size; i++){
         bomb.push(0);
     }
-    let bombNumber = ((size*size*25)/100);
+    let bombNumber = Math.ceil((size*size*(multiplier-1)));
 
 
     for(let i = 0; i < bombNumber; i++){
