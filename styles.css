@@ -62,3 +62,12 @@ h2 {
     flex: 1;
     align-items: center;
 }
+
+
+.postGame {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
