@@ -116,6 +116,12 @@ function playGame(){
         reloadPage();
         return;
     }
+    if (paisaValue<=0) {
+        alert("Inapproapriate Bet");
+        reloadPage();
+        return;
+    }
+    
     let grid = document.querySelector(".grid");
     let size = parseInt(sizeValue);
     if (size>20) {
