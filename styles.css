@@ -1,1 +1,34 @@
 
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+img {
+    width: 30%;
+    height: auto;
+    border: 10px solid black;
+}
+
+.internal {
+    display: flex;
+    
+}
+
+.playArea, .control {
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.control {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    flex: 1 1 auto;
+}
