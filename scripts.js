@@ -21,12 +21,16 @@ let bmb = 0;
 let mul = 0;
 
 
-function explode(){
+function explode(event){
+    let clickedButton = event.currentTarget;
+    clickedButton.style.backgroundColor = "red";
     bmb++;
     console.log(bmb);
     console.log(mul);
 }
-function multiply(){
+function multiply(event){
+    let clickedButton = event.currentTarget;
+    clickedButton.style.backgroundColor = "lime";
     mul++;
     console.log(bmb);
     console.log(mul);
@@ -35,14 +39,17 @@ function multiply(){
 let ptr = 0;
 for(let i = 0; i < size; i++){
     let bigDabba = document.createElement("div");
+    bigDabba.setAttribute("class","bigDabba");
     for(let j =0; j<size;j++){
         let dabba = document.createElement("button");
         dabba.textContent = "Click";
         if (bomb[ptr]==1) {
-            dabba.addEventListener("click",explode);
+            dabba.addEventListener("click",explode,{once:true});
         } else {
-            dabba.addEventListener("click",multiply);
+            dabba.addEventListener("click",multiply,{once:true});
         }
+        dabba.setAttribute("class","playButton");
+        
         bigDabba.appendChild(dabba);
         
         ptr++;
